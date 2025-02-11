@@ -7,13 +7,9 @@ import {Button, Flex, Image, Text, View} from 'native-base';
 const ApplyScreen = () => {
   const url =
     'https://haenaenda.notion.site/113805bc81a14c6495ee11c05fdf1a60?pvs=4';
-  const handlePress = async () => {
-    const supported = await Linking.canOpenURL(url);
-    if (supported) {
-      await Linking.openURL(url);
-    } else {
-      console.error('URL 열기를 지원하지 않습니다:', url);
-    }
+  const encodeUrl = encodeURI(url);
+  const handlePress = (_url: string) => async () => {
+    Linking.openURL(_url);
   };
   return (
     <SafeAreaProvider>
@@ -28,11 +24,10 @@ const ApplyScreen = () => {
               style={styles.image as ImageStyle}
               marginBottom="20px"
             />
-
             <Button
               style={styles.button}
               backgroundColor={'primary.500'}
-              onPress={handlePress}>
+              onPress={handlePress(encodeUrl)}>
               <Text style={styles.buttonText}>{'확인하기'}</Text>
             </Button>
           </Flex>
