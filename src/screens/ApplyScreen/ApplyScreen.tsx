@@ -6,7 +6,7 @@ import {Button, Flex, Image, Text, View} from 'native-base';
 
 const ApplyScreen = () => {
   const url =
-    'https://haenaenda.notion.site/113805bc81a14c6495ee11c05fdf1a60?pvs=4';
+    'https://haenaenda.notion.site/198ff2ad0f2d801fa2b5f4dc62018259';
   const encodeUrl = encodeURI(url);
   const handlePress = (_url: string) => async () => {
     Linking.openURL(_url);
